@@ -17,7 +17,7 @@ function _is_git_dirty
 end
 
 function fish_prompt
-  set -l last_status $status
+  # set -l last_status $status
   set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
@@ -25,11 +25,11 @@ function fish_prompt
   set -l green (set_color -o green)
   set -l normal (set_color normal)
 
-  if test $last_status = 0
-      set arrow "$green➜ "
-  else
-      set arrow "$red➜ "
-  end
+  # if test $last_status = 0
+  #     set arrow "$green➜ "
+  # else
+  #     set arrow "$red➜ "
+  # end
   set -l cwd $cyan(basename (prompt_pwd))
 
   if [ (_git_branch_name) ]
@@ -42,6 +42,6 @@ function fish_prompt
     end
   end
 
-  echo -n -s $arrow ' ' $cwd $git_info $normal ' '
+  # echo -n -s $arrow ' ' $cwd $git_info $normal ' '
+  echo -n -s $cwd $git_info $normal ' '
 end
-
